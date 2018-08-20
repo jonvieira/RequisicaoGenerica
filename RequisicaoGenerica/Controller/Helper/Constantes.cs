@@ -1,4 +1,4 @@
-﻿namespace RequisicaoGenerica.Controller
+﻿namespace RequisicaoGenerica.Controller.Helper
 {
     class Constantes
     {

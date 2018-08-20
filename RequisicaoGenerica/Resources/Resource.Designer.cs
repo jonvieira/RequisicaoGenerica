@@ -44,14 +44,32 @@ namespace RequisicaoGenerica
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f040006
+			public const int bairro = 2130968582;
+			
 			// aapt resource value: 0x7f040002
 			public const int btnConsultar = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int cep = 2130968579;
+			
+			// aapt resource value: 0x7f040005
+			public const int complemento = 2130968581;
 			
 			// aapt resource value: 0x7f040001
 			public const int etCEP = 2130968577;
 			
+			// aapt resource value: 0x7f040007
+			public const int localidade = 2130968583;
+			
+			// aapt resource value: 0x7f040004
+			public const int logradouro = 2130968580;
+			
 			// aapt resource value: 0x7f040000
 			public const int textView1 = 2130968576;
+			
+			// aapt resource value: 0x7f040008
+			public const int uf = 2130968584;
 			
 			static Id()
 			{

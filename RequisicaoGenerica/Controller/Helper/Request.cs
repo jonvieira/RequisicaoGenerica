@@ -5,7 +5,7 @@ using RestSharp;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace RequisicaoGenerica.Controller
+namespace RequisicaoGenerica.Controller.Helper
 {
     class Request<T> where T : new()
     {

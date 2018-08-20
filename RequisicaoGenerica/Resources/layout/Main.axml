@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="8.0dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textAlignment="center" />
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textView1"
         android:id="@+id/etCEP"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
     <Button
@@ -28,7 +28,51 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/etCEP"
         android:id="@+id/btnConsultar"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+        android:layout_marginEnd="16dp" />
+    <TextView
+        android:text="Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnConsultar"
+        android:id="@+id/cep"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp" />
+    <TextView
+        android:text="Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cep"
+        android:id="@+id/logradouro"
+        android:layout_marginStart="16dp" />
+    <TextView
+        android:text="Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logradouro"
+        android:id="@+id/complemento"
+        android:layout_marginStart="16dp" />
+    <TextView
+        android:text="Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/complemento"
+        android:id="@+id/bairro"
+        android:layout_marginStart="16dp" />
+    <TextView
+        android:text="Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bairro"
+        android:id="@+id/localidade"
+        android:layout_marginStart="16dp" />
+    <TextView
+        android:text="Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bairro"
+        android:layout_toRightOf="@+id/localidade"
+        android:id="@+id/uf"
+        android:layout_marginStart="16dp" />
 </RelativeLayout>

@@ -2,16 +2,19 @@
 using Android.Widget;
 using Android.OS;
 using System.Threading.Tasks;
-using RequisicaoGenerica.Controller.Model;
-using static RequisicaoGenerica.Controller.ServicesRequest;
+using static RequisicaoGenerica.Controller.Helper.ServicesRequest;
+using Android.Content;
+using Java.IO;
 
-namespace RequisicaoGenerica
+namespace RequisicaoGenerica.Controller.Model
 {
     [Activity(Label = "RequisicaoGenerica", MainLauncher = true)]
     public class MainActivity : Activity
     {
         EditText EtCep;
         Button BtnConsultar;
+        TextView TvCep, TvLogradouro, TvComplemento, TvBairro, TvLocalidade, TvUF;
+
         private const string CepInvalido = "Ops... CEP inválido";
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -19,13 +22,25 @@ namespace RequisicaoGenerica
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
 
-            EtCep = (EditText)FindViewById(Resource.Id.etCEP);
-            BtnConsultar = (Button)FindViewById(Resource.Id.btnConsultar);
+            Init();
 
             BtnConsultar.Click += delegate
             {
                 ConsultarCEP();
             };
+        }
+
+        private void Init()
+        {
+            EtCep = (EditText)FindViewById(Resource.Id.etCEP);
+            BtnConsultar = (Button)FindViewById(Resource.Id.btnConsultar);
+
+            TvCep = (TextView)FindViewById(Resource.Id.cep);
+            TvLogradouro = (TextView)FindViewById(Resource.Id.logradouro);
+            TvComplemento = (TextView)FindViewById(Resource.Id.complemento);
+            TvBairro = (TextView)FindViewById(Resource.Id.bairro);
+            TvLocalidade = (TextView)FindViewById(Resource.Id.localidade);
+            TvUF = (TextView)FindViewById(Resource.Id.uf);
         }
 
         private async void ConsultarCEP()
@@ -44,8 +59,6 @@ namespace RequisicaoGenerica
         {
             var cepService = new CepService<ModelCEP>(EtCep.Text.ToString());
             var retornoRequisicao = await cepService.Consultar(null, null);
-
-            Toast.MakeText(this, retornoRequisicao.Localidade, ToastLength.Long).Show();
         }
     }
 }

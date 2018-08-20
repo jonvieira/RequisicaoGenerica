@@ -60,11 +60,11 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Constantes.cs" />
-    <Compile Include="Controller\MainActivity.cs" />
+    <Compile Include="Controller\Helper\Constantes.cs" />
+    <Compile Include="Controller\Activity\MainActivity.cs" />
     <Compile Include="Controller\Model\ModelCEP.cs" />
-    <Compile Include="Controller\Request.cs" />
-    <Compile Include="Controller\ServicesRequest.cs" />
+    <Compile Include="Controller\Helper\Request.cs" />
+    <Compile Include="Controller\Helper\ServicesRequest.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
