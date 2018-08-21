@@ -41,35 +41,60 @@ namespace RequisicaoGenerica
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f030002
+			public const int colorAccent = 2130903042;
+			
+			// aapt resource value: 0x7f030000
+			public const int colorPrimary = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int colorPrimaryDark = 2130903041;
+			
+			// aapt resource value: 0x7f030003
+			public const int textColorPrimary = 2130903043;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f040006
-			public const int bairro = 2130968582;
+			// aapt resource value: 0x7f060006
+			public const int bairro = 2131099654;
 			
-			// aapt resource value: 0x7f040002
-			public const int btnConsultar = 2130968578;
+			// aapt resource value: 0x7f060002
+			public const int btnConsultar = 2131099650;
 			
-			// aapt resource value: 0x7f040003
-			public const int cep = 2130968579;
+			// aapt resource value: 0x7f060003
+			public const int cep = 2131099651;
 			
-			// aapt resource value: 0x7f040005
-			public const int complemento = 2130968581;
+			// aapt resource value: 0x7f060005
+			public const int complemento = 2131099653;
 			
-			// aapt resource value: 0x7f040001
-			public const int etCEP = 2130968577;
+			// aapt resource value: 0x7f060001
+			public const int etCEP = 2131099649;
 			
-			// aapt resource value: 0x7f040007
-			public const int localidade = 2130968583;
+			// aapt resource value: 0x7f060007
+			public const int localidade = 2131099655;
 			
-			// aapt resource value: 0x7f040004
-			public const int logradouro = 2130968580;
+			// aapt resource value: 0x7f060004
+			public const int logradouro = 2131099652;
 			
-			// aapt resource value: 0x7f040000
-			public const int textView1 = 2130968576;
+			// aapt resource value: 0x7f060000
+			public const int textView1 = 2131099648;
 			
-			// aapt resource value: 0x7f040008
-			public const int uf = 2130968584;
+			// aapt resource value: 0x7f060008
+			public const int uf = 2131099656;
 			
 			static Id()
 			{
@@ -100,8 +125,8 @@ namespace RequisicaoGenerica
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f030000
-			public const int app_name = 2130903040;
+			// aapt resource value: 0x7f040000
+			public const int app_name = 2130968576;
 			
 			static String()
 			{
@@ -109,6 +134,22 @@ namespace RequisicaoGenerica
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int MyCustomTheme = 2131034112;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

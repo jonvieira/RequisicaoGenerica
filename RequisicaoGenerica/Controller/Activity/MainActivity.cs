@@ -3,12 +3,10 @@ using Android.Widget;
 using Android.OS;
 using System.Threading.Tasks;
 using static RequisicaoGenerica.Controller.Helper.ServicesRequest;
-using Android.Content;
-using Java.IO;
 
 namespace RequisicaoGenerica.Controller.Model
 {
-    [Activity(Label = "RequisicaoGenerica", MainLauncher = true)]
+    [Activity(Theme = "@style/MyCustomTheme", Label = "RequisicaoGenerica", MainLauncher = true)]
     public class MainActivity : Activity
     {
         EditText EtCep;
@@ -59,6 +57,18 @@ namespace RequisicaoGenerica.Controller.Model
         {
             var cepService = new CepService<ModelCEP>(EtCep.Text.ToString());
             var retornoRequisicao = await cepService.Consultar(null, null);
+
+            PopularDados(retornoRequisicao);
+        }
+
+        private void PopularDados(ModelCEP retornoRequisicao)
+        {
+            TvCep.Text = "CEP: " + retornoRequisicao.Cep;
+            TvLogradouro.Text = "Logradouro: " + retornoRequisicao.Cep;
+            TvComplemento.Text = "Complemento: " + retornoRequisicao.Cep;
+            TvBairro.Text = "Bairro: " + retornoRequisicao.Cep;
+            TvLocalidade.Text = "Localidade: " + retornoRequisicao.Cep;
+            TvUF.Text = "UF: " + retornoRequisicao.Cep;
         }
     }
 }
