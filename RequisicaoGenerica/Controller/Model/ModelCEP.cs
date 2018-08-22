@@ -11,5 +11,6 @@
         public string Unidade { get; set; }
         public string Ibge { get; set; }
         public string Gia { get; set; }
+        public bool Erro { get; set; }
     }
 }

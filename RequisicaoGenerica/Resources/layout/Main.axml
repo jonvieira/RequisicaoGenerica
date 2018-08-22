@@ -1,78 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <TextView
-        android:text="Insira o CEP do local que deseja pesquisar"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:layout_marginTop="8.0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:textAlignment="center" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textView1"
-        android:id="@+id/etCEP"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
-    <Button
-        android:text="Consultar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etCEP"
-        android:id="@+id/btnConsultar"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
-    <TextView
-        android:text="Text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnConsultar"
-        android:id="@+id/cep"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp" />
-    <TextView
-        android:text="Text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/cep"
-        android:id="@+id/logradouro"
-        android:layout_marginStart="16dp" />
-    <TextView
-        android:text="Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/logradouro"
-        android:id="@+id/complemento"
-        android:layout_marginStart="16dp" />
-    <TextView
-        android:text="Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/complemento"
-        android:id="@+id/bairro"
-        android:layout_marginStart="16dp" />
-    <TextView
-        android:text="Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bairro"
-        android:id="@+id/localidade"
-        android:layout_marginStart="16dp" />
-    <TextView
-        android:text="Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bairro"
-        android:layout_toRightOf="@+id/localidade"
-        android:id="@+id/uf"
-        android:layout_marginStart="16dp" />
+  <TextView
+      android:text="Insira o CEP do local que deseja pesquisar:"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView1"
+      android:layout_marginTop="8.0dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:textAlignment="center" />
+  <EditText
+      android:inputType="numberDecimal"
+      android:textColor="@color/colorPrimaryDark"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/textView1"
+      android:id="@+id/etCEP"
+      android:layout_marginTop="8dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp" />
+  <Button
+      android:text="Consultar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/etCEP"
+      android:id="@+id/btnConsultar"
+      android:background="@color/colorPrimaryDark"
+      android:layout_marginTop="8dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp" />
+  <TextView
+      android:text="Text"
+      android:visibility="invisible"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/btnConsultar"
+      android:id="@+id/cep"
+      android:textSize="18sp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="24dp" />
+  <TextView
+      android:text="Text"
+      android:visibility="invisible"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/cep"
+      android:id="@+id/logradouro"
+      android:textSize="18sp"
+      android:layout_marginStart="16dp" />
+  <TextView
+      android:text="Text"
+      android:visibility="invisible"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/logradouro"
+      android:id="@+id/complemento"
+      android:textSize="18sp"
+      android:layout_marginStart="16dp" />
+  <TextView
+      android:text="Text"
+      android:visibility="invisible"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/complemento"
+      android:id="@+id/bairro"
+      android:textSize="18sp"
+      android:layout_marginStart="16dp" />
+  <TextView
+      android:text="Text"
+      android:visibility="invisible"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/bairro"
+      android:id="@+id/localidade"
+      android:textSize="18sp"
+      android:layout_marginStart="16dp" />
+  <TextView
+      android:text="Text"
+      android:visibility="invisible"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/bairro"
+      android:layout_toRightOf="@+id/localidade"
+      android:id="@+id/uf"
+      android:textSize="18sp"
+      android:layout_marginStart="16dp" />
+  <ProgressBar
+         android:layout_width="50dp"
+         android:layout_height="50dp"
+         android:id="@+id/progressBar"
+         android:visibility="invisible"
+         style="?android:attr/progressBarStyleLarge"
+         android:layout_centerHorizontal="true"
+         android:layout_below="@+id/btnConsultar"
+         android:indeterminate="true"
+         android:indeterminateTintMode="src_atop"
+         android:indeterminateTint="@color/colorPrimaryDark" />
 </RelativeLayout>

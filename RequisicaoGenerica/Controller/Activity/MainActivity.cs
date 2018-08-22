@@ -2,7 +2,9 @@
 using Android.Widget;
 using Android.OS;
 using System.Threading.Tasks;
+using Android.Views.InputMethods;
 using static RequisicaoGenerica.Controller.Helper.ServicesRequest;
+using Android.Views;
 
 namespace RequisicaoGenerica.Controller.Model
 {
@@ -12,8 +14,11 @@ namespace RequisicaoGenerica.Controller.Model
         EditText EtCep;
         Button BtnConsultar;
         TextView TvCep, TvLogradouro, TvComplemento, TvBairro, TvLocalidade, TvUF;
+        ProgressBar ProgressBar;
 
-        private const string CepInvalido = "Ops... CEP inválido";
+        private const string FormatoInvalido = "Ops... Formato do CEP inválido";
+        private const string CepInvalido = "CEP inválido, verifique se o CEP está correto e tente novamente";
+        private const string OcorreuErro = "Erro, verifique sua conexão e tente novamente";
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -39,13 +44,22 @@ namespace RequisicaoGenerica.Controller.Model
             TvBairro = (TextView)FindViewById(Resource.Id.bairro);
             TvLocalidade = (TextView)FindViewById(Resource.Id.localidade);
             TvUF = (TextView)FindViewById(Resource.Id.uf);
+
+            ProgressBar = (ProgressBar)FindViewById(Resource.Id.progressBar);
+        }
+
+        public override bool OnTouchEvent(MotionEvent e)
+        {
+            InputMethodManager imm = (InputMethodManager)GetSystemService(InputMethodService);
+            imm.HideSoftInputFromWindow(EtCep.WindowToken, 0);
+            return base.OnTouchEvent(e);
         }
 
         private async void ConsultarCEP()
         {
             if (EtCep.Length() != 8)
             {
-                Toast.MakeText(this, CepInvalido, ToastLength.Short).Show();
+                Toast.MakeText(this, FormatoInvalido, ToastLength.Short).Show();
             }
             else
             {
@@ -55,20 +69,45 @@ namespace RequisicaoGenerica.Controller.Model
 
         public async Task RequisicaoCEP()
         {
+            ProgressBar.Visibility = ViewStates.Visible;
+
             var cepService = new CepService<ModelCEP>(EtCep.Text.ToString());
             var retornoRequisicao = await cepService.Consultar(null, null);
-
-            PopularDados(retornoRequisicao);
+            if (retornoRequisicao != null)
+            {
+                if (retornoRequisicao.Erro)
+                {
+                    ProgressBar.Visibility = ViewStates.Gone;
+                    Toast.MakeText(this, CepInvalido, ToastLength.Short).Show();
+                }
+                else
+                {
+                    ProgressBar.Visibility = ViewStates.Gone;
+                    PopularDados(retornoRequisicao);
+                }
+            }
+            else
+            {
+                ProgressBar.Visibility = ViewStates.Gone;
+                Toast.MakeText(this, OcorreuErro, ToastLength.Short).Show();
+            }
         }
 
         private void PopularDados(ModelCEP retornoRequisicao)
         {
             TvCep.Text = "CEP: " + retornoRequisicao.Cep;
-            TvLogradouro.Text = "Logradouro: " + retornoRequisicao.Cep;
-            TvComplemento.Text = "Complemento: " + retornoRequisicao.Cep;
-            TvBairro.Text = "Bairro: " + retornoRequisicao.Cep;
-            TvLocalidade.Text = "Localidade: " + retornoRequisicao.Cep;
-            TvUF.Text = "UF: " + retornoRequisicao.Cep;
+            TvLogradouro.Text = "Logradouro: " + retornoRequisicao.Logradouro;
+            TvComplemento.Text = "Complemento: " + retornoRequisicao.Complemento;
+            TvBairro.Text = "Bairro: " + retornoRequisicao.Bairro;
+            TvLocalidade.Text = "Localidade: " + retornoRequisicao.Localidade;
+            TvUF.Text = "UF: " + retornoRequisicao.Uf;
+
+            TvCep.Visibility = Android.Views.ViewStates.Visible;
+            TvLogradouro.Visibility = Android.Views.ViewStates.Visible;
+            TvComplemento.Visibility = Android.Views.ViewStates.Visible;
+            TvBairro.Visibility = Android.Views.ViewStates.Visible;
+            TvLocalidade.Visibility = Android.Views.ViewStates.Visible;
+            TvUF.Visibility = Android.Views.ViewStates.Visible;
         }
     }
 }
